@@ -1,4 +1,9 @@
+#define __FM_DEBUG
+
 #include "Arduino.h"
+#include "lib/radio.h"
+#include "lib/RDA5807M.h"
+#include "lib/FMTX.h"
 
 /*
  * PIN ASSIGNEMENT
@@ -7,6 +12,13 @@
  * For slave : pin 4 : DEL when ring
  * 6 RF Receiver
  * 7 RF Sender
+ * A5 : SCL to FM Transmit
+ * A4 : SDA to FM Transmit
+ *
+ * RF Receiver MX-TX-5V ? -> VCC 5v
+ * RF Transmitter FS1000A -> VCC 5v
+ * FM Receiver RDA5807M	  -> VCC 3.3V
+ * FM Tx Elechouse FM TX  -> VCC 5v
  */
 
 #define ID_LOW 		2
@@ -20,8 +32,19 @@
 //timeout 1second
 #define TIMEOUT_RF_RX		1000*1000
 
+
+// FM stuff
+#define MASTER_FM_RX		9900
+#define MASTER_FM_TX		10200
+#define SLAVE_FM_RX			MASTER_FM_TX
+#define SLAVE_FM_TX			MASTER_FM_RX
+
+
 bool bIsMaster = true;
 int iMyID = 0;
+
+RDA5807M oFMRx;
+
 void setup()
 {
 	Serial.begin(115200);
@@ -42,11 +65,32 @@ void setup()
 	{
 		pinMode(INPUT1, INPUT_PULLUP);
 		pinMode(INPUT2, INPUT_PULLUP);
+
+		oFMRx.init();
+		oFMRx.setBandFrequency(RADIO_BAND_FM, MASTER_FM_RX);
+		oFMRx.setMono(true);
+		oFMRx.setVolume(10);
+		Serial.println("FX RX initialized");
+		Serial.println(oFMRx.getFrequency());
+		fmtx_init((float)(MASTER_FM_TX / 100), USA);
+		Serial.println("FX TX initialized");
+		Serial.println((float)(MASTER_FM_TX / 100));
+
 	}
 	else
 	{
 		pinMode(LED_RING, OUTPUT);
 		digitalWrite(LED_RING, LOW);
+
+		oFMRx.init();
+		oFMRx.setBandFrequency(RADIO_BAND_FM, SLAVE_FM_RX);
+		oFMRx.setMono(true);
+		oFMRx.setVolume(10);
+		Serial.println("FX RX initialized");
+		Serial.println(oFMRx.getFrequency());
+		fmtx_init((float)(MASTER_FM_TX / 100),EUROPE );
+		Serial.println("\r\nFX TX initialized");
+		Serial.println((float)(SLAVE_FM_TX / 100));
 	}
 
 	pinMode(RF_RX, INPUT);

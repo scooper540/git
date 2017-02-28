@@ -11,6 +11,11 @@
  D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\cores\arduino/Arduino.h \
  D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\variants\eightanaloginputs/pins_arduino.h \
  D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\variants\eightanaloginputs/../standard/pins_arduino.h \
+ ../lib/radio.h \
+ D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\libraries\Wire\src/Wire.h \
+ D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\cores\arduino/Stream.h \
+ ../lib/RDA5807M.h ../lib/radio.h ../lib/FMTX.h \
+ D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\cores\arduino/wiring_private.h \
  ../ring_lite_v1.ino ../rf_receiver.ino ../rf_sender.ino
 
 D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\cores\arduino/Arduino.h:
@@ -36,6 +41,20 @@ D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.1
 D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\variants\eightanaloginputs/pins_arduino.h:
 
 D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\variants\eightanaloginputs/../standard/pins_arduino.h:
+
+../lib/radio.h:
+
+D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\libraries\Wire\src/Wire.h:
+
+D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\cores\arduino/Stream.h:
+
+../lib/RDA5807M.h:
+
+../lib/radio.h:
+
+../lib/FMTX.h:
+
+D:\Documents\Downloads\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.13\cores\arduino/wiring_private.h:
 
 ../ring_lite_v1.ino:
 

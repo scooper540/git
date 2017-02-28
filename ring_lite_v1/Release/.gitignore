@@ -2,3 +2,5 @@
 /makefile
 /sources.mk
 /subdir.mk
+/lib/
+/libraries/

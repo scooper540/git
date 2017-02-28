@@ -15,7 +15,7 @@
 
 #include "FMTX.h"
 
-float fm_freq = 90;  // Here set the default FM frequency
+float fm_freq = 98.5;  // Here set the default FM frequency
 void setup(void)
 {
 
