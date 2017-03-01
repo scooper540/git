@@ -72,7 +72,7 @@ void setup()
 		oFMRx.setVolume(10);
 		Serial.println("FX RX initialized");
 		Serial.println(oFMRx.getFrequency());
-		fmtx_init((float)(MASTER_FM_TX / 100), USA);
+		fmtx_init((float)(MASTER_FM_TX / 100), EUROPE);
 		Serial.println("FX TX initialized");
 		Serial.println((float)(MASTER_FM_TX / 100));
 
@@ -88,7 +88,7 @@ void setup()
 		oFMRx.setVolume(10);
 		Serial.println("FX RX initialized");
 		Serial.println(oFMRx.getFrequency());
-		fmtx_init((float)(MASTER_FM_TX / 100),EUROPE );
+		fmtx_init((float)(SLAVE_FM_TX / 100), EUROPE);
 		Serial.println("\r\nFX TX initialized");
 		Serial.println((float)(SLAVE_FM_TX / 100));
 	}

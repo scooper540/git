@@ -167,9 +167,10 @@ void fmtx_set_pga(fmtx_pga_type pga)
     u8 reg;
     u8 pga_val;
     reg = fmtx_read_reg(0x01);
-    pga_val = (u8)pga;
+    /*pga_val = (u8)pga;
     pga_val &= ~0xC7;
-    reg = (reg&0xC7) | pga_val;
+    reg = (reg&0xC7) | pga_val;*/
+    reg = (reg | 0x38);
     fmtx_write_reg(0x01, reg);
 }
 
@@ -269,7 +270,13 @@ void fmtx_set_au_enhance(void)
 
     fmtx_write_reg(0x17, reg |= 0x20);
 }
+void fmtx_set_max_volume_output(void)
+{
+	u8 reg;
+	reg = fmtx_read_reg(0x04);
+	fmtx_write_reg(0x04, 0x34);
 
+}
 void fmtx_set_xtal(void)
 {
     u8 reg;
@@ -279,10 +286,20 @@ void fmtx_set_xtal(void)
 
 void fmtx_init(float freq, country_type country)
 {
+	Serial.println("START INIT i2c");
 	i2c_init();
+	Serial.println("END INIT i2c");
 	fmtx_set_freq(freq);
+	Serial.println("1");
 	fmtx_set_rfgain(4);
-	fmtx_set_pga(PGA_0DB);
+	Serial.println("2");
+	fmtx_set_pga(PGA_12DB);
+	Serial.println("3");
 	fmtx_set_phcnst(country);
-	fmtx_set_xtal();
+	Serial.println("4");
+	//fmtx_set_xtal();
+	fmtx_set_au_enhance();
+	Serial.println("5");
+	fmtx_set_max_volume_output();
+	Serial.println("6");
 }
