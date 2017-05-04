@@ -2,7 +2,7 @@
 //This is a automatic generated file
 //Please do not modify this file
 //If you touch this file your change will be overwritten during the next build
-//This file has been generated on 2017-03-01 19:45:55
+//This file has been generated on 2017-03-19 21:51:03
 
 #include "Arduino.h"
 #define __FM_DEBUG
@@ -16,6 +16,7 @@ bool read_rf433(int gpio, int timeout_us, unsigned char* data, int maxLength) ;
 void sendBytes(const unsigned char* s, unsigned int length) ;
 void sendPreambule() ;
 void setup() ;
+void startTestMode() ;
 void checkIfRingAccepted(int iID) ;
 void loop() ;
 

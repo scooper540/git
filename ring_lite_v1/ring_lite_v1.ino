@@ -21,13 +21,17 @@
  * FM Tx Elechouse FM TX  -> VCC 5v
  */
 
+#define _DEBUG_
+#define _TEST_MODE_
+
+
 #define ID_LOW 		2
 #define ID_HIGH 	3
 #define INPUT1 		4
 #define INPUT2 		5
 #define LED_RING 	4
 #define RF_RX		6
-#define	RF_TX		7
+#define	RF_TX		8
 
 //timeout 1second
 #define TIMEOUT_RF_RX		1000*1000
@@ -50,7 +54,8 @@ void setup()
 	Serial.begin(115200);
 	Serial.print("Starting ring_lite_v1\r\n");
 
-
+	pinMode(7,OUTPUT);
+	digitalWrite(7, 1);
 	pinMode(ID_LOW,INPUT_PULLUP);
 	pinMode(ID_HIGH,INPUT_PULLUP);
 	iMyID = ((digitalRead(ID_LOW) == 0) ? 1 : 0);
@@ -67,9 +72,15 @@ void setup()
 		pinMode(INPUT2, INPUT_PULLUP);
 
 		oFMRx.init();
+		delay(10);
 		oFMRx.setBandFrequency(RADIO_BAND_FM, MASTER_FM_RX);
-		oFMRx.setMono(true);
-		oFMRx.setVolume(10);
+		delay(10);
+		oFMRx.setMono(false);
+		delay(10);
+		oFMRx.setMute(false);
+		delay(10);
+		oFMRx.setVolume(15);
+		delay(10);
 		Serial.println("FX RX initialized");
 		Serial.println(oFMRx.getFrequency());
 		fmtx_init((float)(MASTER_FM_TX / 100), EUROPE);
@@ -83,9 +94,15 @@ void setup()
 		digitalWrite(LED_RING, LOW);
 
 		oFMRx.init();
+		delay(10);
 		oFMRx.setBandFrequency(RADIO_BAND_FM, SLAVE_FM_RX);
-		oFMRx.setMono(true);
-		oFMRx.setVolume(10);
+		delay(10);
+		oFMRx.setMono(false);
+		delay(10);
+		oFMRx.setMute(false);
+		delay(10);
+		oFMRx.setVolume(15);
+		delay(10);
 		Serial.println("FX RX initialized");
 		Serial.println(oFMRx.getFrequency());
 		fmtx_init((float)(SLAVE_FM_TX / 100), EUROPE);
@@ -95,9 +112,40 @@ void setup()
 
 	pinMode(RF_RX, INPUT);
 	pinMode(RF_TX, OUTPUT);
+
 }
 
-
+#ifdef _TEST_MODE_
+void startTestMode()
+{
+	unsigned char msg[6];
+	memset(&msg, 0, sizeof(msg));
+	if(bIsMaster) // check for button pressed
+	{
+		msg[0] = 1; //to ID 1
+		msg[1] = 1; //action 1 -> ring
+		sendPreambule();
+		sendBytes(msg,sizeof(msg));
+	}
+	else
+	{
+		if(read_rf433(RF_RX, TIMEOUT_RF_RX, msg, sizeof(msg)))
+		{
+			Serial.println((char*)msg);
+			if(msg[0] == 1)
+			{
+				Serial.println("New Message for me");
+				if(msg[1] == 1) //ring
+				{
+					digitalWrite(LED_RING, HIGH);
+					delay(300);
+					digitalWrite(LED_RING, LOW);
+				}
+			}
+		}
+	}
+}
+#endif
 void checkIfRingAccepted(int iID)
 {
 	unsigned char msg[6];
@@ -114,10 +162,14 @@ void checkIfRingAccepted(int iID)
 				{
 					// start audio
 					Serial.println("ring accepted, start audio");
+					oFMRx.setMute(false);
+					delay(10000);
+					oFMRx.setMute(true);
 				}
 			}
 		}
 	}
+
 }
 
 void loop()
@@ -126,6 +178,10 @@ void loop()
 
 	do
 	{
+#ifdef _TEST_MODE_
+		startTestMode();
+		return;
+#endif
 		unsigned char msg[6];
 		memset(&msg, 0, sizeof(msg));
 		if(bIsMaster) // check for button pressed
@@ -171,8 +227,10 @@ void loop()
 						msg[2] = 1; //accept
 						sendPreambule();
 						sendBytes(msg,sizeof(msg));
-						delay(3000);
+						oFMRx.setMute(false);
+						delay(10000);
 						digitalWrite(LED_RING, LOW);
+						oFMRx.setMute(true);
 					}
 				}
 
