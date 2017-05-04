@@ -31,7 +31,7 @@
 #define INPUT2 		5
 #define LED_RING 	4
 #define RF_RX		6
-#define	RF_TX		8
+#define	RF_TX		7
 
 //timeout 1second
 #define TIMEOUT_RF_RX		1000*1000
@@ -54,8 +54,6 @@ void setup()
 	Serial.begin(115200);
 	Serial.print("Starting ring_lite_v1\r\n");
 
-	pinMode(7,OUTPUT);
-	digitalWrite(7, 1);
 	pinMode(ID_LOW,INPUT_PULLUP);
 	pinMode(ID_HIGH,INPUT_PULLUP);
 	iMyID = ((digitalRead(ID_LOW) == 0) ? 1 : 0);
@@ -91,7 +89,7 @@ void setup()
 	else
 	{
 		pinMode(LED_RING, OUTPUT);
-		digitalWrite(LED_RING, LOW);
+		digitalWrite(LED_RING, HIGH);
 
 		oFMRx.init();
 		delay(10);
