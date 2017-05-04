@@ -1240,6 +1240,9 @@ design rules under a new name.</description>
 <element name="LCD1" library="SparkFun-Displays" package="LCD-16X2" value="LCD-16X2SILK" x="-91.44" y="-769.62">
 <attribute name="SF_ID" value="LCD-00255" x="-91.44" y="-769.62" size="1.778" layer="27" display="off"/>
 </element>
+<element name="R14" library="SparkFun-Resistors" package="AXIAL-0.3" value="1k" x="-119.38" y="-800.1">
+<attribute name="PROD_ID" value="RES-12182" x="-119.38" y="-800.1" size="1.778" layer="27" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="VCC">
@@ -1250,12 +1253,14 @@ design rules under a new name.</description>
 <contactref element="Q1" pad="2"/>
 <contactref element="Q2" pad="2"/>
 <contactref element="S1" pad="1"/>
+<contactref element="R14" pad="P$1"/>
 <wire x1="-44.577" y1="-91.44" x2="-74.93" y2="-129.54" width="0" layer="19" extent="1-1"/>
 <wire x1="-69.85" y1="-187.833" x2="-74.93" y2="-129.54" width="0" layer="19" extent="1-1"/>
 <wire x1="22.86" y1="6.35" x2="-44.577" y2="-91.44" width="0" layer="19" extent="1-1"/>
 <wire x1="44.45" y1="52.07" x2="22.86" y2="6.35" width="0" layer="19" extent="1-1"/>
 <wire x1="-74.93" y1="-320.04" x2="-69.85" y2="-187.833" width="0" layer="19" extent="1-1"/>
 <wire x1="-123.9012" y1="-730.5294" x2="-74.93" y2="-320.04" width="0" layer="19" extent="1-1"/>
+<wire x1="-123.19" y1="-800.1" x2="-123.9012" y2="-730.5294" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GND">
 <contactref element="U$1" pad="GND"/>
@@ -1279,6 +1284,7 @@ design rules under a new name.</description>
 <contactref element="JP4" pad="1"/>
 <contactref element="T1" pad="E"/>
 <contactref element="R11" pad="P$2"/>
+<contactref element="LCD1" pad="16"/>
 <wire x1="-72.39" y1="-436.88" x2="-72.39" y2="-421.64" width="0" layer="19" extent="1-1"/>
 <wire x1="-74.93" y1="-406.4" x2="-72.39" y2="-421.64" width="0" layer="19" extent="1-1"/>
 <wire x1="-78.74" y1="-452.12" x2="-72.39" y2="-436.88" width="0" layer="19" extent="1-1"/>
@@ -1299,6 +1305,7 @@ design rules under a new name.</description>
 <wire x1="87.63" y1="75.057" x2="46.99" y2="52.07" width="0" layer="19" extent="1-1"/>
 <wire x1="92.71" y1="34.29" x2="87.63" y2="75.057" width="0" layer="19" extent="1-1"/>
 <wire x1="-67.31" y1="-577.85" x2="-78.74" y2="-452.12" width="0" layer="19" extent="1-1"/>
+<wire x1="-85.34" y1="-754.12" x2="-67.31" y2="-577.85" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$2">
 <contactref element="U$1" pad="D2"/>
@@ -1528,12 +1535,6 @@ design rules under a new name.</description>
 <contactref element="S1" pad="3"/>
 <wire x1="-123.9012" y1="-735.0506" x2="62.23" y2="36.83" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="A">
-<contactref element="LCD1" pad="15"/>
-</signal>
-<signal name="K">
-<contactref element="LCD1" pad="16"/>
-</signal>
 <signal name="N$27">
 <contactref element="U$1" pad="A0"/>
 <contactref element="LCD1" pad="14"/>
@@ -1562,6 +1563,14 @@ design rules under a new name.</description>
 </signal>
 <signal name="E">
 <contactref element="LCD1" pad="6"/>
+</signal>
+<signal name="RS">
+<contactref element="LCD1" pad="4"/>
+</signal>
+<signal name="N$34">
+<contactref element="LCD1" pad="15"/>
+<contactref element="R14" pad="P$2"/>
+<wire x1="-87.88" y1="-754.12" x2="-115.57" y2="-800.1" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

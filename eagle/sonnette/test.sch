@@ -55,7 +55,7 @@
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
@@ -7628,7 +7628,7 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <instance part="LCD1" gate="G$1" x="-1419.86" y="558.8"/>
 <instance part="SUPPLY4" gate="G$1" x="-1447.8" y="579.12"/>
 <instance part="GND20" gate="1" x="-1440.18" y="579.12" rot="R270"/>
-<instance part="GND21" gate="1" x="-1437.64" y="568.96" rot="R270"/>
+<instance part="GND21" gate="1" x="-1440.18" y="568.96" rot="R270"/>
 <instance part="GND22" gate="1" x="-1430.02" y="535.94"/>
 <instance part="R14" gate="G$1" x="-1440.18" y="541.02"/>
 <instance part="SUPPLY5" gate="G$1" x="-1447.8" y="541.02"/>
@@ -7810,6 +7810,10 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <segment>
 <pinref part="GND23" gate="1" pin="GND"/>
 <wire x1="-1539.24" y1="528.32" x2="-1539.24" y2="525.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND21" gate="1" pin="GND"/>
+<wire x1="-1430.02" y1="568.96" x2="-1437.64" y2="568.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -8106,13 +8110,6 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <label x="-1838.96" y="619.76" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="R7" gate="G$1" pin="1"/>
-<pinref part="T1" gate="G$1" pin="B"/>
-<wire x1="-1866.9" y1="579.12" x2="-1859.28" y2="579.12" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="AUDIO_SELECT" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="D13"/>
@@ -8120,14 +8117,19 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <label x="-1473.2" y="543.56" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="-1877.06" y1="579.12" x2="-1884.68" y2="579.12" width="0.1524" layer="91"/>
-<label x="-1899.92" y="579.12" size="1.778" layer="95"/>
-<wire x1="-1884.68" y1="579.12" x2="-1894.84" y2="579.12" width="0.1524" layer="91"/>
-<wire x1="-1884.68" y1="558.8" x2="-1884.68" y2="579.12" width="0.1524" layer="91"/>
-<junction x="-1884.68" y="579.12"/>
 <pinref part="IC2" gate="C" pin="C"/>
-<wire x1="-1765.3" y1="558.8" x2="-1884.68" y2="558.8" width="0.1524" layer="91"/>
+<wire x1="-1765.3" y1="558.8" x2="-1864.36" y2="558.8" width="0.1524" layer="91"/>
+<pinref part="R7" gate="G$1" pin="1"/>
+<pinref part="T1" gate="G$1" pin="B"/>
+<wire x1="-1866.9" y1="579.12" x2="-1864.36" y2="579.12" width="0.1524" layer="91"/>
+<wire x1="-1864.36" y1="579.12" x2="-1859.28" y2="579.12" width="0.1524" layer="91"/>
+<wire x1="-1864.36" y1="558.8" x2="-1864.36" y2="579.12" width="0.1524" layer="91"/>
+<junction x="-1864.36" y="579.12"/>
+</segment>
+<segment>
+<pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="-1877.06" y1="579.12" x2="-1894.84" y2="579.12" width="0.1524" layer="91"/>
+<label x="-1899.92" y="579.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$16" class="0">
@@ -8309,11 +8311,6 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <label x="-1534.16" y="535.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$33" class="0">
-<segment>
-<wire x1="-1427.48" y1="568.96" x2="-1435.1" y2="568.96" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="RS" class="0">
 <segment>
 <pinref part="LCD1" gate="G$1" pin="RS"/>
@@ -8345,6 +8342,10 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="202,1,-1752.6,487.68,IC2D,C,,,,"/>
+<approved hash="202,1,-1430.02,568.96,LCD1,R/W,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>

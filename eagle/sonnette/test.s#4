@@ -55,7 +55,7 @@
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
@@ -6356,6 +6356,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="LCD1" library="SparkFun-Displays" deviceset="LCD-16X2" device="SILK"/>
 <part name="SUPPLY4" library="SparkFun-PowerSymbols" deviceset="VCC" device=""/>
 <part name="GND20" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="GND21" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="GND22" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="R14" library="SparkFun-Resistors" deviceset="1KOHM" device="-HORIZ-1/4W-1%" value="1k"/>
+<part name="SUPPLY5" library="SparkFun-PowerSymbols" deviceset="VCC" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6434,6 +6438,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="LCD1" gate="G$1" x="-1419.86" y="558.8"/>
 <instance part="SUPPLY4" gate="G$1" x="-1447.8" y="591.82"/>
 <instance part="GND20" gate="1" x="-1440.18" y="579.12" rot="R270"/>
+<instance part="GND21" gate="1" x="-1437.64" y="568.96" rot="R270"/>
+<instance part="GND22" gate="1" x="-1430.02" y="535.94"/>
+<instance part="R14" gate="G$1" x="-1440.18" y="541.02"/>
+<instance part="SUPPLY5" gate="G$1" x="-1447.8" y="541.02"/>
 </instances>
 <busses>
 </busses>
@@ -6480,6 +6488,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <segment>
 <pinref part="SUPPLY4" gate="G$1" pin="VCC"/>
 <wire x1="-1447.8" y1="586.74" x2="-1447.8" y2="591.82" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R14" gate="G$1" pin="1"/>
+<wire x1="-1445.26" y1="541.02" x2="-1447.8" y2="541.02" width="0.1524" layer="91"/>
+<pinref part="SUPPLY5" gate="G$1" pin="VCC"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -6596,6 +6609,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <segment>
 <pinref part="GND18" gate="1" pin="GND"/>
 <wire x1="-1696.72" y1="566.42" x2="-1696.72" y2="568.96" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND22" gate="1" pin="GND"/>
+<pinref part="LCD1" gate="G$1" pin="K"/>
+<wire x1="-1430.02" y1="538.48" x2="-1430.02" y2="541.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -7076,6 +7094,33 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <segment>
 <pinref part="LCD1" gate="G$1" pin="VSS"/>
 <wire x1="-1430.02" y1="579.12" x2="-1437.64" y2="579.12" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="E" class="0">
+<segment>
+<pinref part="LCD1" gate="G$1" pin="E"/>
+<wire x1="-1430.02" y1="566.42" x2="-1435.1" y2="566.42" width="0.1524" layer="91"/>
+<label x="-1435.1" y="566.42" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$33" class="0">
+<segment>
+<wire x1="-1427.48" y1="568.96" x2="-1435.1" y2="568.96" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="RS" class="0">
+<segment>
+<pinref part="LCD1" gate="G$1" pin="RS"/>
+<wire x1="-1430.02" y1="571.5" x2="-1435.1" y2="571.5" width="0.1524" layer="91"/>
+<label x="-1435.1" y="571.5" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$34" class="0">
+<segment>
+<pinref part="LCD1" gate="G$1" pin="A"/>
+<wire x1="-1430.02" y1="543.56" x2="-1432.56" y2="543.56" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="2"/>
+<wire x1="-1432.56" y1="543.56" x2="-1435.1" y2="541.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

@@ -4954,7 +4954,7 @@ The Slot footprint only works if the mill layer is transmitted to the PCB fab ho
 <part name="C1" library="SparkFun-Capacitors" deviceset="0.1UF" device="-KIT-EZ-50V-20%" value="0.1uF"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="0.1UF" device="-KIT-EZ-50V-20%" value="0.1uF"/>
 <part name="DC1" library="dc-dc-converter" deviceset="DCW1U" device=""/>
-<part name="Q1" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCH" device="-FQP30N06L" value="60V/32A/35mΩ"/>
+<part name="Q1" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCH" device="-FQP30N06L" value="IRFZ44N"/>
 <part name="GND6" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND7" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="R2" library="SparkFun-Resistors" deviceset="1KOHM" device="-HORIZ-1/4W-1%" value="1k"/>
@@ -4968,7 +4968,7 @@ The Slot footprint only works if the mill layer is transmitted to the PCB fab ho
 <part name="R5" library="SparkFun-Resistors" deviceset="1KOHM" device="-HORIZ-1/4W-1%" value="4.7k"/>
 <part name="FM_TX" library="pinhead" deviceset="PINHD-1X4" device=""/>
 <part name="R6" library="SparkFun-Resistors" deviceset="1KOHM" device="-HORIZ-1/4W-1%" value="1k"/>
-<part name="Q2" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCH" device="-FQP30N06L" value="60V/32A/35mΩ"/>
+<part name="Q2" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCH" device="-FQP30N06L" value="IRFZ44N"/>
 <part name="JP3" library="pinhead" deviceset="PINHD-1X5" device=""/>
 <part name="JP4" library="pinhead" deviceset="PINHD-1X5" device=""/>
 <part name="IC3" library="linear" deviceset="78*" device="TV" technology="05" value="LM3840"/>

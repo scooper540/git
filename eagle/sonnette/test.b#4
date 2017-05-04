@@ -1560,6 +1560,9 @@ design rules under a new name.</description>
 <signal name="N$32">
 <contactref element="LCD1" pad="1"/>
 </signal>
+<signal name="E">
+<contactref element="LCD1" pad="6"/>
+</signal>
 </signals>
 </board>
 </drawing>
